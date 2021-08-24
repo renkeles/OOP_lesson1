@@ -47,11 +47,12 @@ public:
         }
     }
     bool push(int x) {
-        if (lenght < 10) {
+        if (lenght < 10 - 1) {
             arr[++lenght] = x;
             return true;
         }
         else {
+            std::cout << x << " not included! Stack overflow!" << std::endl;
             return false;
         }
     }
@@ -68,11 +69,18 @@ public:
     }
 
     void print() {
-        for (size_t i = 0; i < lenght; i++) {
+        if (lenght == -1) {
+            std::cout << "( )" << std::endl;
+        }
+        else {
+            std::cout << "( ";
+            for (size_t i = 0; i < lenght + 1; i++) {
             //std::cout.width(3);
             std::cout << arr[i] << " ";
+            }
+            std::cout << ")" << std::endl;
         }
-        std::cout << std::endl;
+
     }
 };
 
@@ -94,12 +102,12 @@ int main()
     stack.push(3);
     stack.push(4);
     stack.push(5);
-    stack.print();
-    std::cout << stack.pop() << std::endl;
-    stack.print();
-    std::cout << stack.pop() << std::endl;
-    stack.push(4);
-    stack.push(5);
+    //stack.print();
+    //std::cout << stack.pop() << std::endl;
+    //stack.print();
+    //std::cout << stack.pop() << std::endl;
+    //stack.push(4);
+    //stack.push(5);
     stack.push(6);
     stack.push(7);
     stack.push(8);
@@ -107,6 +115,19 @@ int main()
     stack.push(10);
     stack.push(11);
     stack.print();
+    std::cout << "Head stack been = " << stack.pop() << std::endl;
+    stack.reset();
+    stack.print();
+    stack.push(6);
+    stack.push(7);
+    stack.push(8);
+    stack.print();
+    std::cout << "Head stack been = " << stack.pop() << std::endl;
+    std::cout << "Head stack been = " << stack.pop() << std::endl;
+    stack.print();
+    
+    Stack stack2;
+
 
 
     return 0;
