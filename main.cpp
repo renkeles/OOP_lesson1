@@ -34,6 +34,48 @@ public:
     }
 };
 
+class Stack {
+private:
+    int arr[10] = { 0 };
+    int lenght = -1;
+    int tmp = 0;
+public:
+    void reset() {
+        lenght = -1;
+        for (size_t i = 0; i < 10; i++) {
+            arr[i] = 0;
+        }
+    }
+    bool push(int x) {
+        if (lenght < 10) {
+            arr[++lenght] = x;
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    int pop() {
+        if (lenght == -1) {
+            std::cout << "Stack is empty!" << std::endl;
+        }
+        else {
+            tmp = arr[lenght];
+            arr[lenght] = 0;
+            lenght--;
+            return tmp;
+        }
+    }
+
+    void print() {
+        for (size_t i = 0; i < lenght; i++) {
+            //std::cout.width(3);
+            std::cout << arr[i] << " ";
+        }
+        std::cout << std::endl;
+    }
+};
+
 int main()
 {
     Power first;
@@ -46,6 +88,25 @@ int main()
     RGBA rgba(12,175,43,250);
     rgba.print();
     
+    Stack stack;
+    stack.push(1);
+    stack.push(2);
+    stack.push(3);
+    stack.push(4);
+    stack.push(5);
+    stack.print();
+    std::cout << stack.pop() << std::endl;
+    stack.print();
+    std::cout << stack.pop() << std::endl;
+    stack.push(4);
+    stack.push(5);
+    stack.push(6);
+    stack.push(7);
+    stack.push(8);
+    stack.push(9);
+    stack.push(10);
+    stack.push(11);
+    stack.print();
 
 
     return 0;
