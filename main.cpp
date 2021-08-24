@@ -126,9 +126,6 @@ int main()
     std::cout << "Head stack been = " << stack.pop() << std::endl;
     stack.print();
     
-    Stack stack2;
-
-
 
     return 0;
 }
